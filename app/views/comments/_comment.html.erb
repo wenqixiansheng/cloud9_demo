@@ -1,0 +1,18 @@
+<!--总的评论-->
+<p>
+  <strong>解答人:</strong>
+  <%= comment.commenter %>
+</p>
+ 
+<p>
+  <strong>解答内容:</strong>
+  <%= comment.body %>
+</p>
+<!--删除不要的评论-->
+<p>
+  <%= link_to '删除解答', [comment.article, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+
+<br/><br/>

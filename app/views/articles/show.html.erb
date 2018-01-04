@@ -1,0 +1,24 @@
+<!--文章内容-->
+<br/><br/><br/><br/>
+<table align="center">
+  <tr><center>
+    <td><strong>题目:</strong></td>
+    <td><%= @article.title %></td></center>
+ </tr>
+ <tr>
+   <td><strong>问题内容:</strong></td>
+   <td><%= @article.text %></td>
+ </tr>
+</table>
+<!--总的评论:代码在_comment.html--> 
+<%= render @article.comments %>  <!--显示评论的部分提取到_comment.html.erb中-->
+
+
+<!--写评论：具体代码在_form.html中-->
+<%= render 'comments/form' %>
+
+<br/><br/>
+<center>
+<%= link_to '修改', edit_article_path(@article) %>&nbsp;&nbsp; |
+<%= link_to '返回题库', articles_path %>
+</center>

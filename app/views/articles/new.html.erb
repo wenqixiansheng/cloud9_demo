@@ -1,0 +1,38 @@
+<center><h1>编辑自己的题目</h1></center><br/><br/><br/><br/><br/>
+<%= form_for @article,scope: true,local: true,url: {action: "create"} do |form| %>
+<!--不能使用form_with,而且URL的值可以直接用url:articles_path，也可以直接如上面所写-->
+
+  <!--输入检验-->
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <!--第一个参数数值大于1，则第二个参数将会自动复数-->
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <!--列表输出错误信息-->
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  
+  <center>
+    <%= form.label :题目 %><br>
+    <%= form.text_field :title %>
+  </center>
+  <br/>
+  <center>
+    <%= form.label :问题内容 %><br>
+    <%= form.text_area :text %>
+  </center>
+ <br/><br/>
+  <center>
+    <%= form.submit :新建 %>
+  </center>
+<% end %>
+<br/><br/>
+<center><%= link_to '返回到题库', articles_path %></center>

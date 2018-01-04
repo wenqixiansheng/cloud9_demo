@@ -1,0 +1,43 @@
+<center><h1>修 &nbsp;&nbsp;&nbsp;&nbsp; 改</h1></center>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+<%= form_for @article  do |form| %>
+ 
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <center>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+      </center>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table align="center">
+  <tr rowspan=4>
+    <td>
+      <%= form.label :题目 %><br></td>
+    <td>
+      <%= form.text_field :title %></td>
+  </tr>
+  <tr><td><br/></td></tr>
+  <tr colspan="2">
+    <td>
+      <%= form.label :问题内容 %><br></td>
+    <td>  
+      <%= form.text_area :text %></td>
+  </tr>
+</table>
+<br/><br/>
+  <center>
+    <%= form.submit :修改%>
+  </center>
+ 
+<% end %>
+<br/><br/>
+<center>
+<%= link_to '返回题库', articles_path %>
+</center>

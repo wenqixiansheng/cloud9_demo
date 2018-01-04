@@ -1,0 +1,16 @@
+<!--写评论-->
+<br/><br/><br/><br/>
+<%= form_for [ @article, @article.comments.build ] do |form| %>
+  <center>
+    <%= form.label :解答人 %><br>
+    <%= form.text_field :commenter %>
+  </center>
+  <center>
+    <%= form.label :解答内容 %><br>
+    <%= form.text_area :body %>
+  </center>
+  <br/><br/>
+  <center>
+    <%= form.submit :解答%>
+  </center>
+<% end %>
